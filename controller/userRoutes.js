@@ -20,6 +20,21 @@ router.get("/", async (req, res)=>{
 
 })
 
+router.get("/:id", async (req, res)=>{
+
+  try{
+      const result = await User.find({
+        _id: new ObjectId(req.params.id)
+      });
+  
+      res.json(result)
+
+  } catch(err){
+      console.log(err)
+  }
+
+})
+
 router.post("/", async (req, res)=>{
 
     try{
